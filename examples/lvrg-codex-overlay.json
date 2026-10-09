@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "slack-direct": {
+      "command": "/bin/sh",
+      "args": ["/ABSOLUTE/PATH/TO/slack-mcp-server/scripts/lvrg-stdio.sh"],
+      "env": {
+        "SLACK_MCP_XOXP_TOKEN": "REPLACE_IN_PRIVATE_CONFIGURATION",
+        "SLACK_MCP_ADD_MESSAGE_TOOL": "C0123456789"
+      },
+      "startup_timeout_sec": 120,
+      "tool_timeout_sec": 120
+    }
+  }
+}
