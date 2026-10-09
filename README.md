@@ -1,4 +1,9 @@
 # Slack MCP Server
+
+This fork includes a [Codex/Threasury setup](docs/lvrg-codex-setup.md) with an
+explicit posting allowlist, private OAuth configuration and a
+[verified-send skill](skills/README.md). Account activation is a separate step.
+
 [![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/korotovsky/slack-mcp-server)](https://archestra.ai/mcp-catalog/korotovsky__slack-mcp-server)
 
 Model Context Protocol (MCP) server for Slack Workspaces. The most powerful MCP Slack server — supports Stdio, SSE and HTTP transports, proxy settings, DMs, Group DMs, Smart History fetch (by date or count), may work via OAuth or in complete stealth mode with no permissions and scopes in Workspace 😏.
@@ -56,7 +61,7 @@ Add a message to a public channel, private channel, or direct message (DM, or IM
 - **Parameters:**
   - `channel_id` (string, required): ID of the channel in format `Cxxxxxxxxxx` or its name starting with `#...` or `@...` aka `#general` or `@username_dm`.
   - `thread_ts` (string, optional): Unique identifier of either a thread’s parent message or a message in the thread_ts must be the timestamp in format `1234567890.123456` of an existing message with 0 or more replies. Optional, if not provided the message will be added to the channel itself, otherwise it will be added to the thread.
-  - `payload` (string, required): Message payload in specified content_type format. Example: 'Hello, world!' for text/plain or '# Hello, world!' for text/markdown.
+  - `text` (string): Message text in specified content_type format. Example: 'Hello, world!' for text/plain or '# Hello, world!' for text/markdown. Provide text or blocks. The handler also accepts the legacy `payload` alias, but it is not part of the current tool schema.
   - `content_type` (string, default: "text/markdown"): Content type of the message. Default is 'text/markdown'. Allowed values: 'text/markdown', 'text/plain'.
 
 ### 4. conversations_search_messages
